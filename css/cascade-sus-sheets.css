@@ -11,9 +11,7 @@ haccing skill #2: view webpage's css files
     padding: 0;
 }
 
-@media
-
-::prefers-reduced-motion {
+@media prefers-reduced-motion {
     * {
         transition: none !important;
     }
@@ -156,7 +154,6 @@ header h1 span {
     background-clip: text;
     color: transparent;
     -webkit-background-clip: text;
-    -moz-background-clip: text;
 }
 
 .buttons {
