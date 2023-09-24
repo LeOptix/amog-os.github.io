@@ -6,7 +6,8 @@ const links = [
     { href: `./index.html`, name: `Home`, id: `home`, icon: "nf-md-home" },
     { href: `./download.html`, name: `Download`, id: `downloads`, icon: "nf-md-download" },
     { href: `./help.html`, name: `Help`, id: `help`, icon: "nf-md-help" },
-    { href: `./credits.html`, name: `Credits`, id: `credits`, icon: "nf-md-crowd" }
+    { href: `./credits.html`, name: `Credits`, id: `credits`, icon: "nf-md-crowd" },
+    { href: `https://opencollective.com/amogos`, name: `Donate`, id: `donate`, icon: "nf-md-hand_heart" },
 ];
 
 /**
