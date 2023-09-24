@@ -13,10 +13,12 @@ const CACHE_EXPIRATION_MS = 24 * 60 * 60 * 1000; // 24 hr
  * @returns {Promise<JSON>} The extra information of the contributor
  */
 
-async function getContributorExtraInfo(user) {
+async function getContributorExtraInfo(user, repo) {
     const url = `${githubApiUrl}/users/${user}`
     const response = await fetch(url)
-    return await response.json()
+    const data = await response.json()
+    data.repo = repo;
+    return await data;
 }
 
 /**
@@ -30,36 +32,49 @@ async function getContributorExtraInfo(user) {
 async function getContributors(org, repo) {
     const url = `${githubApiUrl}/repos/${org}/${repo}/contributors`
     const response = await fetch(url)
-    return await response.json()
+    const data = await response.json()
+
+    if (data.message.startsWith(`API rate limit exceeded`)) {
+        console.error(`Rate limit exceeded!`)
+        return []
+    }
+
+    for (let i = 0; i < data.length; i++) data[i].repo = repo;
+    return data;
 }
 
 /**
  * @name populateContributors
- * @description This function populates the contributors page with the contributors of the project
+ * @description This function populates the contributors page with the contributors of the project.
+ *              Note that the client may be rate limited by the GitHub API.
  * @returns {Promise<void>}
  */
 
 async function populateContributors() {
-    // from two repos: amog-os/amogostoppat  amog-os/amogos
-    const contributors = await getContributors(`amog-os`, `amogostoppat`);
-    const contributors2 = await getContributors(`amog-os`, `amogos`);
 
-    console.log(contributors)
-    console.log(contributors2)
+    const organisation = `amog-os`;
+    const repos = [`AmogOS`, `AmogOStopPat`, `AmogOS-Wallpapers`, `Amog-OS.github.io`];
 
-    contributors.push(...contributors2);
+    let contributors = [];
+
+    for (let i = 0; i < repos.length; i++) {
+        const repo = repos[i];
+        const repoContributors = await getContributors(organisation, repo);
+        contributors = contributors.concat(repoContributors);
+    }
 
     const contributorsContainer = document.getElementById(`contributorsContainer`);
 
     for (let i = 0; i < contributors.length; i++) {
         const contributorLogin = contributors[i].login;
+        if (contributorLogin === undefined) continue;
+        console.log(`Repo: ${contributors[i].repo} | Contributor: ${contributorLogin}`);
         let contributor = getCachedContributor(contributorLogin);
 
         if (!contributor) {
             contributor = await getContributorExtraInfo(contributorLogin);
             cacheContributor(contributorLogin, contributor);
         }
-
 
         const coolBoi = document.createElement(`div`);
         coolBoi.classList.add(`coolboi`);
@@ -73,6 +88,13 @@ async function populateContributors() {
         const card = document.createElement(`div`);
         card.classList.add(`role`);
         card.innerText = contributor.type === `User` ? `Contributor` : contributor.type;
+
+        // Add a role for repo the contributor has contributed to
+        const repo = document.createElement(`div`);
+        repo.classList.add(`role`);
+        repo.innerText = contributor.repo;
+        card.appendChild(repo);
+
 
         const h3 = document.createElement(`p`);
         h3.innerHTML = `<span>"</span>${contributor.bio || `No bio provided`}<span>"</span>`;
