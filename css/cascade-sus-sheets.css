@@ -139,6 +139,7 @@ header {
     background-size: cover;
     box-shadow: 0 0 20px 0 #000;
     text-align: center;
+    transition: unset;
 }
 
 header h1 {
@@ -161,7 +162,7 @@ header h1 span {
     gap: 1em;
 }
 
-button {
+button, .button {
     padding: 0.6em 1em;
     border-radius: 1em;
     outline: none;
@@ -172,16 +173,14 @@ button {
     text-align: center;
     border: 2px solid transparent;
     transition: 0.3s;
-}
 
-button:hover {
-    filter: brightness(0.75);
 }
 
 .btn-prim {
     background-color: var(--amog-green);
+    color: #000;
 
-    &:hover {
+    &:hover, &:focus {
         background-color: transparent;
         border: solid 2px var(--amog-green);
         color: var(--amog-green);
@@ -201,7 +200,7 @@ button:hover {
     border: solid 2px var(--amog-blue);
     color: var(--amog-blue);
 
-    &:hover {
+    &:hover, &:focus {
         background-color: var(--amog-blue);
         color: #000;
 
@@ -221,7 +220,7 @@ button:hover {
     border: solid 2px var(--amog-black-plus);
     color: #FFF;
 
-    &:hover {
+    &:hover, &:focus {
         background-color: var(--amog-black-plus);
 
         box-shadow: 0 0 0 1px var(--amog-blacky-transparent),
@@ -232,8 +231,6 @@ button:hover {
         0 32px 64px var(--amog-blacky-transparent);
     }
 }
-
-
 
 
 section {
@@ -319,6 +316,10 @@ section {
     aspect-ratio: 1/1;
     animation: coolboi-in 250ms cubic-bezier(0.6, 0, 0, 1);
 
+    &.not1x1 {
+        aspect-ratio: unset;
+    }
+
     & a {
         color: #FFF;
         font-size: 1.5em;
@@ -340,12 +341,11 @@ section {
     }
 
     & img {
-        top: 0;
-        left: 0;
-
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1.2);
         filter: brightness(0.5) blur(4px) grayscale(1);
         width: 100%;
-        scale: 1.2;
         position: absolute;
         z-index: -1;
         object-fit: cover;
@@ -364,8 +364,8 @@ section {
         border: solid 2px var(--amog-green);
 
         & img {
-            transform: scale(1.1);
             filter: brightness(0.5) blur(4px) grayscale(0);
+            transform: translate(-50%, -50%) scale(1);
         }
     }
 }
@@ -387,24 +387,77 @@ section {
 }
 
 footer {
-    padding: 10px;
-    text-align: center;
-    width: 100vw;
-    max-width: 768px;
-    background-color: var(--amog-black);
-    border-radius: 8px;
-    margin: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 
-    & h4 {
-        font-weight: 400;
+    background-color: var(--amog-black);
+    border-radius: 2em;
+    padding: 2em;
+    max-width: 1200px;
+    width: 75%;
+    margin-bottom: 2em;
+
+
+    display: grid;
+    grid-template-areas:
+        "logo empty empty"
+        "text links social";
+    gap: 1em;
+
+
+    .footer__text {
+        grid-area: text;
+        font-size: 1rem;
+        font-weight: 500;
+        margin: 0;
     }
+
+    .footer__subsection {
+        background-color: var(--amog-blacky);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1em;
+        border-radius: 1em;
+    }
+
+    .logo {
+        grid-area: logo;
+
+        & img {
+            width: 100%;
+            height: 100%;
+            max-width: 10em;
+            object-fit: cover;
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    .footer__social {
+        grid-area: social;
+    }
+
+    .footer__links {
+        grid-area: links;
+    }
+
+
+    .footer__link {
+        width: auto;
+        font-weight: 700;
+        color: var(--amog-green);
+        transition: all 0.25s cubic-bezier(0.6, 0, 0, 1);
+
+        &:hover {
+            color: var(--amog-blue);
+            margin-left: 0.5em;
+        }
+    }
+
 }
 
 @media (max-width: 1200px) {
+
     nav {
         border-radius: unset;
         top: 0;
@@ -421,7 +474,17 @@ footer {
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
+
+    footer {
+        grid-template-areas:
+      "logo"
+      "text"
+      "links"
+      "social";
+        grid-template-columns: 1fr;
+        gap: 1em;
+    }
 
     nav {
         padding: 0.5em;
@@ -449,7 +512,6 @@ footer {
 
     .feature {
         flex-direction: column !important;
-        /*background-color: unset;*/
         border-radius: 20px;
 
         & img, & .lbl {

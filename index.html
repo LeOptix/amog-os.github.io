@@ -44,8 +44,8 @@ NOTES:
 
     <link rel="stylesheet" href="css/cascade-sus-sheets.css" type="text/css">
     <!--cascade style sheets, cascade sus sheets, get it?-->
-    <link rel="icon" href="https://amog-os.github.io/impostor.png">
-    <link rel="apple-touch-icon" href="https://amog-os.github.io/impostor.png"> <!--icon = apple-touch-icon -->
+    <link rel="icon" href="img/amogos-logo.png"> <!--icon = favicon -->
+    <link rel="apple-touch-icon" href="img/amogos-logo.png"> <!--icon = apple-touch-icon -->
     <!--<link rel="google-spyware" href="google.com">-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -85,8 +85,8 @@ NOTES:
 
             img.animate(
                 [
-                    { transform: 'translate(' + deltaX * 0.05 + 'px, ' + deltaY * 0.05 + 'px) rotate(0deg)' },
-                    { rotate: angleDegrees + 'deg' }
+                    {transform: 'translate(' + deltaX * 0.05 + 'px, ' + deltaY * 0.05 + 'px) rotate(0deg)'},
+                    {rotate: angleDegrees + 'deg'}
                 ],
                 {
                     duration: 60000,
@@ -99,8 +99,8 @@ NOTES:
         document.addEventListener('mouseleave', () => {
             img.animate(
                 [
-                    { transform: 'translate(0px, 0px) rotate(0deg)' },
-                    { transform: 'translate(0px, 0px) rotate(0deg)' }
+                    {transform: 'translate(0px, 0px) rotate(0deg)'},
+                    {transform: 'translate(0px, 0px) rotate(0deg)'}
                 ],
                 {
                     duration: 60000,
@@ -110,22 +110,21 @@ NOTES:
             );
         });
 
+        const header = document.querySelector('header');
+
+        // As the user scrolls, keep the header background image in the same place
+        window.addEventListener('scroll', () => {
+            header.style.backgroundPositionY = window.scrollY / 4 + 'px';
+            header.style.filter = 'blur(' + (1 - window.scrollY / 1000) + ')';
+        });
+
     </script>
-
-
-
 
     <h3>The sus OS for sus comput ers is back, even more sussy.</h3>
     <div class="buttons">
-        <a href="#sussyfy">
-            <button class="btn-prim">Download now!</button>
-        </a>
-        <a href="#features">
-            <button class="btn-sec">Features</button>
-        </a>
-        <a href="#help">
-            <button class="btn-third">Join us on Discord!</button>
-        </a>
+        <a href="#sussyfy" class="button btn-prim">Download now!</a>
+        <a href="#features" class="button btn-sec">Features</a>
+        <a href="#help" class="button btn-third">Join us on Discord!</a>
     </div>
 </header>
 <main>
@@ -168,23 +167,49 @@ NOTES:
             </div>
         </div>
     </section>
-    <hr>
+
     <section id="sussyfy">
         <h2>Let's make your PC even more sus</h2>
-        <a href="download.html">
-            <button class="btn-prim">Download instructions</button>
-        </a>
+        <a href="download.html" class="button btn-prim">Download instructions</a>
     </section>
-    <hr>
+
+    <section id="testimonials">
+
+        <h2>What people say about AmogOS</h2>
+
+        <div class="bois">
+            <div class="coolboi not1x1">
+                <img src="https://yt3.ggpht.com/QDObfTmCBj_yXG8zje72O8Y5AuF5Fq61U-pcJbF_NneUuW_prwqWmeZjmi2CJmY-wDFgVR9cOA=s128-c-k-c0x00ffffff-no-rj" alt="The AmogOS logo; a blue Among Us character in a black circle.">
+                <h1>MattKC</h1>
+                <div class="role">American</div>
+                <p><span>"</span>I found my new main OS<span>"</span></p>
+                <a href="https://www.youtube.com/watch?v=saScDeK_U9o"><i class="nf nf-md-youtube"></i></a>
+            </div>
+
+            <div class="coolboi not1x1">
+                <img src="https://yt3.ggpht.com/TUoF-6QCUIKy6XgFtMG5FWi5FLVhtaUPtTOLvE7Ca3eJif1_RKBci07fKK-QvKxhC0HALEBH7Q=s128-c-k-c0x00ffffff-no-rj" alt="The AmogOS logo; a blue Among Us character in a black circle.">
+                <h1>TechHut</h1>
+                <div class="role">Also American</div>
+                <p><span>"</span>Chad AmogOS vs bloated mainstream distro<span>"</span></p>
+                <a href="https://www.youtube.com/watch?v=ymYIJYb2hYI"><i class="nf nf-md-youtube"></i></a>
+            </div>
+
+            <div class="coolboi not1x1">
+                <img src="https://yt3.googleusercontent.com/ytc/APkrFKaUqsH1iUAz9WaJLakvlAb8z24JBn_FEMHXvRtkow=s128-c-k-c0x00ffffff-no-rj" alt="The AmogOS logo; a blue Among Us character in a black circle.">
+                <h1>SomeOrdinaryGamers</h1>
+                <div class="role">Canadian</div>
+                <p><span>"</span>sussy wussy<span>"</span></p>
+                <a href="https://www.youtube.com/watch?v=ixLuhDxNktk"><i class="nf nf-md-youtube"></i></a>
+            </div>
+        </div>
+
+    </section>
+
     <section id="help">
         <h2>Having trobules? We got ya' covered</h2>
         <div class="buttons">
-            <a href="#"> <!--replace with discord link-->
-                <button class="btn-third">Ask for support on the Discord</button>
-            </a>
-            <a href="help.html">
-                <button class="btn-sec">Read the help articles</button>
-            </a>
+            <a class="button btn-sec" href="help.html">Read the help article</a>
+            <a class="button btn-third" href="https://discord.gg/z86muknm9y">Ask for support on the Discord</a>
         </div>
     </section>
 </main>
