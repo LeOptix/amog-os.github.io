@@ -8,7 +8,7 @@
 
 function navConstructor() {
 
-    const links = [ { href: `/index.html`, name: `Home`, id: `home` } ]
+    const links = [ { href: `./index.html`, name: `Home`, id: `home` } ]
 
     // find every section with an id
     const sections = document.querySelectorAll(`section[id]`);
