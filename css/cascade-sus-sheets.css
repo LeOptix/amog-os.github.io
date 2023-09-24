@@ -70,10 +70,10 @@ a:hover, span {
     & img {
         width: 64px;
         position: absolute;
-        top: -20px;
-        left: -30px;
-        transform: rotate(-30deg);
+        top: -30px;
+        right: 50%;
         z-index: -1;
+        transition: all 500ms cubic-bezier(0.6, 0, 0, 1);
     }
 }
 
@@ -115,10 +115,6 @@ nav {
         border-radius: 1em;
         padding: 0.1em 1em;
         border: solid 2px var(--amog-green-transparent);
-
-        & i {
-
-        }
 
         &:hover, &:focus {
             outline: none;
@@ -226,7 +222,6 @@ section {
         align-items: flex-end;
         justify-content: flex-end;
         text-align: right;
-
     }
 }
 
@@ -263,7 +258,6 @@ section {
     width: 90%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
     gap: 10px;
 }
 

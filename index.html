@@ -55,7 +55,6 @@ NOTES:
 
     <script src="js/elementConstructor.js" defer></script>
 
-
 </head>
 <body>
 
@@ -66,7 +65,57 @@ NOTES:
     <div class="container">
         <h1>AmogOS <span id="toppat">Toppat<img id="topHatImage" src="img/toppat.png" alt="Top Hat"></span></h1>
     </div>
-    <h3>The sus OS for sus computers is back, even more sussy.</h3>
+
+    <script>
+        const img = document.getElementById('topHatImage');
+
+        document.addEventListener('mousemove', (e) => {
+            const imgRect = img.getBoundingClientRect();
+            const imgCenterX = imgRect.left + imgRect.width / 2;
+            const imgCenterY = imgRect.top + imgRect.height / 2;
+
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+
+            const deltaX = mouseX - imgCenterX;
+            const deltaY = mouseY - imgCenterY;
+
+            const angle = Math.atan2(deltaY, deltaX);
+            const angleDegrees = angle * (180 / Math.PI) - 70;
+
+            img.animate(
+                [
+                    { transform: 'translate(' + deltaX * 0.05 + 'px, ' + deltaY * 0.05 + 'px) rotate(0deg)' },
+                    { rotate: angleDegrees + 'deg' }
+                ],
+                {
+                    duration: 60000,
+                    iterations: 69,
+                    easing: `cubic-bezier(${Math.random()}, ${Math.random()}, ${Math.random()}, ${Math.random()})`
+                }
+            );
+        });
+
+        document.addEventListener('mouseleave', () => {
+            img.animate(
+                [
+                    { transform: 'translate(0px, 0px) rotate(0deg)' },
+                    { transform: 'translate(0px, 0px) rotate(0deg)' }
+                ],
+                {
+                    duration: 60000,
+                    iterations: 69,
+                    easing: `linear`
+                }
+            );
+        });
+
+    </script>
+
+
+
+
+    <h3>The sus OS for sus comput ers is back, even more sussy.</h3>
     <div class="buttons">
         <a href="#sussyfy">
             <button class="btn-prim">Download now!</button>
