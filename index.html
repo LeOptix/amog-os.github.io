@@ -67,66 +67,66 @@ NOTES:
         <h1>AmogOS <span id="toppat">Toppat<img id="topHatImage" src="img/toppat.png" alt="Top Hat"></span></h1>
     </div>
 
-        <script>
-            const img = document.getElementById('topHatImage');
+    <script>
+        const img = document.getElementById('topHatImage');
 
-            document.addEventListener('mousemove', (e) => {
-                const imgRect = img.getBoundingClientRect();
-                const imgCenterX = imgRect.left + imgRect.width / 2;
-                const imgCenterY = imgRect.top + imgRect.height / 2;
+        document.addEventListener('mousemove', (e) => {
+            const imgRect = img.getBoundingClientRect();
+            const imgCenterX = imgRect.left + imgRect.width / 2;
+            const imgCenterY = imgRect.top + imgRect.height / 2;
 
-                const mouseX = e.clientX;
-                const mouseY = e.clientY;
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
 
-                const deltaX = mouseX - imgCenterX;
-                const deltaY = mouseY - imgCenterY;
+            const deltaX = mouseX - imgCenterX;
+            const deltaY = mouseY - imgCenterY;
 
-                const angle = Math.atan2(deltaY, deltaX);
-                const angleDegrees = angle * (180 / Math.PI) - 70;
+            const angle = Math.atan2(deltaY, deltaX);
+            const angleDegrees = angle * (180 / Math.PI) - 70;
 
-                img.animate(
-                    [
-                        {transform: 'translate(' + deltaX * 0.05 + 'px, ' + deltaY * 0.05 + 'px) rotate(0deg)'},
-                        {rotate: angleDegrees + 'deg'}
-                    ],
-                    {
-                        duration: 60000,
-                        iterations: 69,
-                        easing: `cubic-bezier(${Math.random()}, ${Math.random()}, ${Math.random()}, ${Math.random()})`
-                    }
-                );
-            });
+            img.animate(
+                [
+                    {transform: 'translate(' + deltaX * 0.05 + 'px, ' + deltaY * 0.05 + 'px) rotate(0deg)'},
+                    {rotate: angleDegrees + 'deg'}
+                ],
+                {
+                    duration: 60000,
+                    iterations: 69,
+                    easing: `cubic-bezier(${Math.random()}, ${Math.random()}, ${Math.random()}, ${Math.random()})`
+                }
+            );
+        });
 
-            document.addEventListener('mouseleave', () => {
-                img.animate(
-                    [
-                        {transform: 'translate(0px, 0px) rotate(0deg)'},
-                        {transform: 'translate(0px, 0px) rotate(0deg)'}
-                    ],
-                    {
-                        duration: 60000,
-                        iterations: 69,
-                        easing: `linear`
-                    }
-                );
-            });
+        document.addEventListener('mouseleave', () => {
+            img.animate(
+                [
+                    {transform: 'translate(0px, 0px) rotate(0deg)'},
+                    {transform: 'translate(0px, 0px) rotate(0deg)'}
+                ],
+                {
+                    duration: 60000,
+                    iterations: 69,
+                    easing: `linear`
+                }
+            );
+        });
 
-            const header = document.querySelector('header');
+        const header = document.querySelector('header');
 
-            // As the user scrolls, keep the header background image in the same place
-            window.addEventListener('scroll', () => {
-                header.style.backgroundPositionY = window.scrollY / 4 + 'px';
-                header.style.filter = 'blur(' + (1 - window.scrollY / 1000) + ')';
-            });
+        // As the user scrolls, keep the header background image in the same place
+        window.addEventListener('scroll', () => {
+            header.style.backgroundPositionY = window.scrollY / 4 + 'px';
+            header.style.filter = 'blur(' + (1 - window.scrollY / 1000) + ')';
+        });
 
-        </script>
+    </script>
 
-        <h3>The sus OS for sus computers is back, and <span>even sussier</span> than ever before!</h3>
-        <div class="buttons">
-            <a href="#features" class="button btn-prim">Explore AmogOS</a>
-            <a href="#sussyfy" class="button btn-sec">Make your PC sus</a>
-            <a href="#testimonials" class="button btn-third">What people say</a>
-        </div>
+    <h3>The sus OS for sus computers is back, and <span>even sussier</span> than ever before!</h3>
+    <div class="buttons">
+        <a href="#features" class="button btn-prim">Explore AmogOS</a>
+        <a href="#sussyfy" class="button btn-sec">Make your PC sus</a>
+        <a href="#testimonials" class="button btn-third">What people say</a>
+    </div>
 </header>
 
 
@@ -134,39 +134,41 @@ NOTES:
     <section id="features">
         <h2>Reasons to make your computer <span>sus</span></h2>
         <div class="feature">
-            <img src="img/amogos.png" alt="A screenshot of an AmogOS desktop with an Among Us character in the centre, 
+            <img src="img/toppat-banner.png" alt="A screenshot of an AmogOS desktop with an Among Us character in the centre,
             within a black circle.">
             <div class="lbl">
-                <h1>some cool feature goes here</h1>
-                <p>this is just a placeholder, which holds the place so you can get an idea of how more or less would
-                    this look if you used ma design for da amogos websus</p>
+                <h2>Incredibly Sussy!</h2>
+                <p>AmogOS is the most sussy OS you can find. It's so sussy that it's even more sussy than sussy
+                    things!</p>
             </div>
         </div>
         <div class="feature" style="flex-direction: row-reverse;">
-            <img src="img/amogos.png" alt="A screenshot of an AmogOS desktop with an Among Us character in the centre, 
+            <img src="img/features/wallpapers.png" alt="A screenshot of an AmogOS desktop with an Among Us character in the centre,
             within a black circle.">
             <div class="lbl">
-                <h1>some cool feature goes here</h1>
-                <p>this is just a placeholder, which holds the place so you can get an idea of how more or less would
-                    this look if you used ma design for da amogos websus</p>
+                <h2>Custom AmogOS Wallpapers</h2>
+                <p>AmogOS comes with a set of custom wallpapers, so you can make your desktop even more sussy! Check
+                    them out in <code>~/Pictures/.AmogOS/</code>, or download them <a
+                            href="https://github.com/Amog-OS/AmogOS-Wallpapers">
+                        here</a>.</p>
             </div>
         </div>
         <div class="feature">
-            <img src="img/amogos.png" alt="A screenshot of an AmogOS desktop with an Among Us character in the centre, 
+            <img src="img/features/neofetch.png" alt="A screenshot of an AmogOS desktop with an Among Us character in the centre,
             within a black circle.">
             <div class="lbl">
-                <h1>some cool feature goes here</h1>
-                <p>this is just a placeholder, which holds the place so you can get an idea of how more or less would
-                    this look if you used ma design for da amogos websus</p>
+                <h2>Custom Neofetch</h2>
+                <p>AmogOS comes with a custom Neofetch, so you can show off your sussy OS to your friends! Check it out
+                    by running <code>neofetch</code> in the terminal.</p>
             </div>
         </div>
         <div class="feature" style="flex-direction: row-reverse;">
-            <img src="img/amogos.png" alt="A screenshot of an AmogOS desktop with an Among Us character in the centre, 
+            <img src="img/features/Xfce.png" alt="A screenshot of an AmogOS desktop with an Among Us character in the centre,
             within a black circle.">
             <div class="lbl">
-                <h1>some cool feature goes here</h1>
-                <p>this is just a placeholder, which holds the place so you can get an idea of how more or less would
-                    this look if you used ma design for da amogos websus</p>
+                <h2>Epic Xfce</h2>
+                <p>AmogOS uses the Xfce desktop environment, which is lightweight and easy to use. It's also very
+                    customisable, so you can make it even more sussy!</p>
             </div>
         </div>
     </section>
