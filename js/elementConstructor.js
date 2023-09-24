@@ -8,14 +8,6 @@
 
 function navConstructor() {
 
-    /*
-    <nav>
-        <a href="/index.html">Home</a>
-        <a href="#story">The story of AmogOS</a>
-        <a href="#credits">Credits</a>
-    </nav>
-     */
-
     const links = [ { href: `/index.html`, name: `Home`, id: `home` } ]
 
     // find every section with an id
@@ -46,14 +38,6 @@ function navConstructor() {
 }
 
 function footerConstructor() {
-
-
-    /*
-    <footer>
-    <h4>&copy; AmogOS Project | All auspiciousness reserved</h4>
-    <p><a href="credits.html">Our story, team and acknowledgment</a></p>
-</footer>
-     */
 
     const footer = document.createElement(`footer`);
 
