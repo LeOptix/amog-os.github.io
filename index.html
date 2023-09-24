@@ -54,6 +54,7 @@ NOTES:
     <!--this also includes montserrat for some reason, but it gets poppins which is the font from old amogos websus so idc-->
 
     <script src="js/elementConstructor.js" defer></script>
+    <script src="js/main.js" defer></script>
 
 </head>
 <body>
@@ -66,67 +67,69 @@ NOTES:
         <h1>AmogOS <span id="toppat">Toppat<img id="topHatImage" src="img/toppat.png" alt="Top Hat"></span></h1>
     </div>
 
-    <script>
-        const img = document.getElementById('topHatImage');
+        <script>
+            const img = document.getElementById('topHatImage');
 
-        document.addEventListener('mousemove', (e) => {
-            const imgRect = img.getBoundingClientRect();
-            const imgCenterX = imgRect.left + imgRect.width / 2;
-            const imgCenterY = imgRect.top + imgRect.height / 2;
+            document.addEventListener('mousemove', (e) => {
+                const imgRect = img.getBoundingClientRect();
+                const imgCenterX = imgRect.left + imgRect.width / 2;
+                const imgCenterY = imgRect.top + imgRect.height / 2;
 
-            const mouseX = e.clientX;
-            const mouseY = e.clientY;
+                const mouseX = e.clientX;
+                const mouseY = e.clientY;
 
-            const deltaX = mouseX - imgCenterX;
-            const deltaY = mouseY - imgCenterY;
+                const deltaX = mouseX - imgCenterX;
+                const deltaY = mouseY - imgCenterY;
 
-            const angle = Math.atan2(deltaY, deltaX);
-            const angleDegrees = angle * (180 / Math.PI) - 70;
+                const angle = Math.atan2(deltaY, deltaX);
+                const angleDegrees = angle * (180 / Math.PI) - 70;
 
-            img.animate(
-                [
-                    {transform: 'translate(' + deltaX * 0.05 + 'px, ' + deltaY * 0.05 + 'px) rotate(0deg)'},
-                    {rotate: angleDegrees + 'deg'}
-                ],
-                {
-                    duration: 60000,
-                    iterations: 69,
-                    easing: `cubic-bezier(${Math.random()}, ${Math.random()}, ${Math.random()}, ${Math.random()})`
-                }
-            );
-        });
+                img.animate(
+                    [
+                        {transform: 'translate(' + deltaX * 0.05 + 'px, ' + deltaY * 0.05 + 'px) rotate(0deg)'},
+                        {rotate: angleDegrees + 'deg'}
+                    ],
+                    {
+                        duration: 60000,
+                        iterations: 69,
+                        easing: `cubic-bezier(${Math.random()}, ${Math.random()}, ${Math.random()}, ${Math.random()})`
+                    }
+                );
+            });
 
-        document.addEventListener('mouseleave', () => {
-            img.animate(
-                [
-                    {transform: 'translate(0px, 0px) rotate(0deg)'},
-                    {transform: 'translate(0px, 0px) rotate(0deg)'}
-                ],
-                {
-                    duration: 60000,
-                    iterations: 69,
-                    easing: `linear`
-                }
-            );
-        });
+            document.addEventListener('mouseleave', () => {
+                img.animate(
+                    [
+                        {transform: 'translate(0px, 0px) rotate(0deg)'},
+                        {transform: 'translate(0px, 0px) rotate(0deg)'}
+                    ],
+                    {
+                        duration: 60000,
+                        iterations: 69,
+                        easing: `linear`
+                    }
+                );
+            });
 
-        const header = document.querySelector('header');
+            const header = document.querySelector('header');
 
-        // As the user scrolls, keep the header background image in the same place
-        window.addEventListener('scroll', () => {
-            header.style.backgroundPositionY = window.scrollY / 4 + 'px';
-            header.style.filter = 'blur(' + (1 - window.scrollY / 1000) + ')';
-        });
+            // As the user scrolls, keep the header background image in the same place
+            window.addEventListener('scroll', () => {
+                header.style.backgroundPositionY = window.scrollY / 4 + 'px';
+                header.style.filter = 'blur(' + (1 - window.scrollY / 1000) + ')';
+            });
 
-    </script>
+        </script>
 
-    <h3>The sus OS for sus comput ers is back, even more sussy.</h3>
-    <div class="buttons">
-        <a href="#sussyfy" class="button btn-prim">Download now!</a>
-        <a href="#features" class="button btn-sec">Features</a>
-        <a href="#help" class="button btn-third">Join us on Discord!</a>
-    </div>
+        <h3>The sus OS for sus computers is back, and <span>even sussier</span> than ever before!</h3>
+        <div class="buttons">
+            <a href="#features" class="button btn-prim">Explore AmogOS</a>
+            <a href="#sussyfy" class="button btn-sec">Make your PC sus</a>
+            <a href="#testimonials" class="button btn-third">What people say</a>
+        </div>
 </header>
+
+
 <main>
     <section id="features">
         <h2>Reasons to make your computer <span>sus</span></h2>
