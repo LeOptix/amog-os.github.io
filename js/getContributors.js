@@ -34,9 +34,13 @@ async function getContributors(org, repo) {
     const response = await fetch(url)
     const data = await response.json()
 
-    if (data.message.startsWith(`API rate limit exceeded`)) {
-        console.error(`Rate limit exceeded!`)
-        return []
+    try {
+        if (data.message.startsWith(`API rate limit exceeded`)) {
+            console.error(`Rate limit exceeded!`)
+            return []
+        }
+    } catch (e) {
+        console.error(`Error while checking rate limit: ${e}`)
     }
 
     for (let i = 0; i < data.length; i++) data[i].repo = repo;
@@ -68,7 +72,6 @@ async function populateContributors() {
     for (let i = 0; i < contributors.length; i++) {
         const contributorLogin = contributors[i].login;
         if (contributorLogin === undefined) continue;
-        console.log(`Repo: ${contributors[i].repo} | Contributor: ${contributorLogin}`);
         let contributor = getCachedContributor(contributorLogin);
 
         if (!contributor) {
@@ -150,7 +153,7 @@ function getCachedContributor(login) {
     const cachedData = localStorage.getItem(`contributor_${login}`);
 
     if (cachedData) {
-        const { data, timestamp } = JSON.parse(cachedData);
+        const {data, timestamp} = JSON.parse(cachedData);
         const currentTime = Date.now();
 
         if (currentTime - timestamp < CACHE_EXPIRATION_MS) return data;
