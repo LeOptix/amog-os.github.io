@@ -1,0 +1,361 @@
+/*
+haccing skill #2: view webpage's css files
+*/
+
+@import "https://www.nerdfonts.com/assets/css/webfont.css";
+
+* {
+    transition: all 500ms cubic-bezier(0.6, 0, 0, 1);
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+}
+
+@media::prefers-reduced-motion {
+    * {
+        transition: none !important;
+    }
+}
+
+:root {
+    --amog-green: #66DDCC;
+    --amog-green-transparent: rgba(102, 221, 204, 0.2);
+    --amog-blue: #7289DA;
+    --amog-blue-transparent: rgba(114, 137, 218, 0.2);
+    --amog-blacky: #070A0E;
+    --amog-blacky-transparent: rgba(7, 10, 14, 0.2);
+    --amog-black: #0D1117;
+    --amog-black-transparent: rgba(13, 17, 23, 0.2);
+    --amog-black-plus: #161B22; /*i rlly like dark palettes*/
+}
+
+body {
+    background-color: var(--amog-blacky);
+    color: #FFF;
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+a {
+    color: #FFF;
+    text-decoration: none;
+}
+
+a:hover, span {
+    color: var(--amog-blue);
+}
+
+hr {
+    width: 90%;
+    height: 2px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background-image: linear-gradient(to bottom right, var(--amog-blue), var(--amog-green));
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 70%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+header {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background-image: url(../img/sus-on-moon.jpg);
+    background-position: 100% 50%;
+    background-size: cover;
+    box-shadow: 0 0 20px 0 #000;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 70px;
+}
+
+header h1 span {
+    font-size: 70px;
+    background-image: linear-gradient(to bottom right, var(--amog-green), var(--amog-blue));
+    white-space: nowrap;
+    background-clip: text;
+    color: transparent;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+button {
+    padding: 20px 50px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-prim {
+    background-color: var(--amog-green);
+}
+
+.btn-prim:hover {
+    box-shadow: 0px 0px 10px 0px var(--amog-green);
+}
+
+.btn-sec {
+    background-color: var(--amog-blue);
+}
+
+.btn-sec:hover {
+    box-shadow: 0px 0px 10px 0px var(--amog-blue);
+}
+
+.btn-third {
+    background-color: var(--amog-black-plus);
+    color: #FFF;
+}
+
+.btn-third:hover {
+    box-shadow: 0px 0px 10px 0px var(--amog-black);
+}
+
+section {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-direction: column;
+
+    width: 100vw;
+    max-width: 1280px;
+}
+
+.feature {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: center;
+    width: 90%;
+    gap: 20px;
+
+    &:nth-child(odd) .lbl {
+        align-items: flex-end;
+        justify-content: flex-end;
+        text-align: right;
+    }
+
+}
+
+.feature img {
+    width: 40%;
+    border-radius: 20px;
+}
+
+.feature .lbl {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+
+}
+
+.support {
+    width: calc(90% - 10px);
+    border-radius: 10px;
+    padding: 10px;
+    border: solid 4px var(--amog-green);
+}
+
+#story .content {
+    width: calc(90% - 10px);
+    padding: 10px;
+    font-size: 20px;
+}
+
+.bois {
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+    gap: 10px;
+}
+
+.coolboi {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 1em;
+    border-radius: 10px;
+    border: solid 2px var(--amog-green-transparent);
+    background-color: var(--amog-black-transparent);
+    overflow: hidden;
+    aspect-ratio: 1/1;
+    animation: coolboi-in 250ms cubic-bezier(0.6, 0, 0, 1);
+
+    & a {
+        color: #FFF;
+        font-size: 1.5em;
+
+        &:hover {
+            color: var(--amog-blue);
+        }
+
+    }
+
+    & .role {
+        background-color: var(--amog-green);
+        padding: 2px 10px;
+        border-radius: 6em;
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--amog-black);
+        user-select: none;
+    }
+
+    & img {
+        top: 0;
+        left: 0;
+
+        filter: brightness(0.5) blur(4px) grayscale(1);
+        width: 100%;
+        scale: 1.2;
+        position: absolute;
+        z-index: -1;
+        object-fit: cover;
+    }
+
+    & .links {
+        display: flex;
+        flex-direction: row;
+        gap: 1em;
+        align-items: center;
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    &:hover {
+        border: solid 2px var(--amog-green);
+
+        & img {
+            transform: scale(1.1);
+            filter: brightness(0.5) blur(4px) grayscale(0);
+        }
+    }
+}
+
+@keyframes coolboi-in {
+    0% {
+        opacity: 0;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+footer {
+    padding: 10px;
+    text-align: center;
+    width: 100vw;
+    max-width: 768px;
+    background-color: var(--amog-black);
+    border-radius: 8px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    & h4 {
+        font-weight: 400;
+    }
+
+}
+
+@media (max-width: 1200px) {
+    nav {
+        top: 0;
+        left: 0;
+        right: 0;
+        justify-content: center;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 700px) {
+    header {
+        height: 60vh;
+        gap: 10px;
+    }
+
+    button {
+        padding: 10px 30px;
+        border-radius: 15px;
+    }
+
+    header h1, header h1 span {
+        font-size: 40px;
+    }
+
+    .buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature {
+        flex-direction: column !important;
+    }
+
+    .feature img, .feature .lbl {
+        width: 100%;
+    }
+}
