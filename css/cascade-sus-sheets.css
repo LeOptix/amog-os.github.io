@@ -61,6 +61,24 @@ a:hover, span {
     color: var(--amog-blue);
 }
 
+.container {
+    position: relative;
+}
+
+#toppat {
+    position: relative;
+    z-index: 2;
+
+    & img {
+        width: 64px;
+        position: absolute;
+        top: -20px;
+        left: -30px;
+        transform: rotate(-30deg);
+        z-index: -1;
+    }
+}
+
 hr {
     width: 90%;
     height: 2px;
@@ -83,6 +101,12 @@ nav {
     padding: 1em;
 
     & a {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+
         font-size: 1.5em;
         font-weight: 500;
         text-decoration: none;
@@ -92,9 +116,16 @@ nav {
         backdrop-filter: blur(10px);
         border-radius: 1em;
         padding: 0.1em 1em;
+        border: solid 2px var(--amog-green-transparent);
 
-        &:hover {
-            filter: brightness(1.2);
+        & i {
+
+        }
+
+        &:hover, &:focus {
+            outline: none;
+            filter: brightness(0.75);
+            border: solid 2px var(--amog-green);
         }
     }
 }
@@ -336,17 +367,14 @@ footer {
     & h4 {
         font-weight: 400;
     }
-
 }
 
 @media (max-width: 1200px) {
     nav {
 
-        & {
-            top: 0;
-            width: calc(100vw - 2em);
-            margin: 0 1em;
-        }
+        top: 0;
+        width: calc(100vw - 2em);
+        margin: 0 1em;
 
         & a {
             text-align: center;
@@ -361,10 +389,9 @@ footer {
 @media (max-width: 700px) {
 
     nav {
-        & {
-            padding: 0.5em;
-        }
+        padding: 0.5em;
     }
+
 
     header {
         height: 60vh;
@@ -386,7 +413,7 @@ footer {
     }
 
     .feature {
-        flex-direction: column !important;
+        flex-direction: column;
 
         & img, & .lbl {
             width: 100%;
@@ -401,9 +428,6 @@ footer {
                 text-align: center;
                 width: 100%;
             }
-
         }
     }
-
-
 }
