@@ -11,7 +11,9 @@ haccing skill #2: view webpage's css files
     padding: 0;
 }
 
-@media::prefers-reduced-motion {
+@media
+
+::prefers-reduced-motion {
     * {
         transition: none !important;
     }
@@ -69,15 +71,32 @@ hr {
 }
 
 nav {
+
     position: fixed;
-    top: 0;
-    right: 0;
-    left: 70%;
+    top: 1em;
     display: flex;
     flex-direction: row;
+    gap: 8px;
     align-items: center;
-    justify-content: space-between;
-    padding: 10px;
+    justify-content: center;
+    z-index: 100;
+    padding: 1em;
+
+    & a {
+        font-size: 1.5em;
+        font-weight: 500;
+        text-decoration: none;
+        user-select: none;
+
+        background: linear-gradient(to bottom right, var(--amog-blue-transparent), var(--amog-green-transparent));
+        backdrop-filter: blur(10px);
+        border-radius: 1em;
+        padding: 0.1em 1em;
+
+        &:hover {
+            filter: brightness(1.2);
+        }
+    }
 }
 
 header {
@@ -177,7 +196,6 @@ section {
         justify-content: flex-end;
         text-align: right;
     }
-
 }
 
 .feature img {
@@ -323,15 +341,31 @@ footer {
 
 @media (max-width: 1200px) {
     nav {
-        top: 0;
-        left: 0;
-        right: 0;
-        justify-content: center;
-        gap: 20px;
+
+        & {
+            top: 0;
+            width: calc(100vw - 2em);
+            margin: 0 1em;
+        }
+
+        & a {
+            text-align: center;
+            flex: 1;
+            font-size: 1.2em;
+            padding: 0.1em 0.5em;
+        }
+
     }
 }
 
 @media (max-width: 700px) {
+
+    nav {
+        & {
+            padding: 0.5em;
+        }
+    }
+
     header {
         height: 60vh;
         gap: 10px;
@@ -353,9 +387,23 @@ footer {
 
     .feature {
         flex-direction: column !important;
+
+        & img, & .lbl {
+            width: 100%;
+        }
+
+        & .lbl {
+            justify-content: center;
+            justify-items: center;
+            align-items: center;
+
+            & h1, & p {
+                text-align: center;
+                width: 100%;
+            }
+
+        }
     }
 
-    .feature img, .feature .lbl {
-        width: 100%;
-    }
+
 }
