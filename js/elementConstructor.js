@@ -10,6 +10,12 @@ const links = [
     { href: `https://opencollective.com/amogos`, name: `Donate`, id: `donate`, icon: "nf-md-hand_heart" },
 ];
 
+const socialLinks = [
+    { href: `https://discord.gg/z86muknm9y`, name: `Discord`, id: `discord`, icon: "nf-md-discord" },
+    { href: `https://github.com/amog-os/`, name: `GitHub`, id: `github`, icon: "nf-md-github" },
+    { href: `https://www.reddit.com/r/amogOS/`, name: `Reddit`, id: `reddit`, icon: "nf-md-reddit" }
+];
+
 /**
  * @name navConstructor
  */
@@ -71,10 +77,9 @@ function footerConstructor() {
 
     const social = createElement('div', ['footer__social', 'footer__subsection']);
     social.appendChild(createElement('h2', [], 'Social'));
-    const discordLink = createLink({ href: 'https://discord.gg/z86muknm9y', id: 'discord', name: 'Join the Discord' });
-    const githubLink = createLink({ href: 'https://github.com/amog-os', id: '', name: 'AmogOS GitHub' });
-    social.appendChild(discordLink);
-    social.appendChild(githubLink);
+
+    socialLinks.forEach(link => social.appendChild(createLink(link)));
+
 
     footer.append(text, linksContainer, social);
     document.body.appendChild(footer);
