@@ -59,6 +59,14 @@ a:hover, span {
     color: var(--amog-blue);
 }
 
+code {
+    font-family: "Fira Code", monospace;
+    background-color: var(--amog-black-transparent);
+    border-radius: 4px;
+    padding: 0.1em 0.5em;
+    border: solid 2px var(--amog-green-transparent);
+}
+
 .container {
     position: relative;
 }
