@@ -61,7 +61,7 @@ function footerConstructor() {
     const footer = createElement('footer');
 
     // noinspection HtmlUnknownTarget
-    footer.appendChild(createElement('div', ['logo'], '<img src="img/toppat-banner.png" alt="Logo" class="logo__image">'));
+    footer.appendChild(createElement('div', ['logo'], '<img src="img/toppat-banner-light.png" alt="Logo" class="logo__image">'));
 
     // noinspection HtmlUnknownTarget
     const textContent = `
