@@ -20,8 +20,17 @@ function navbarScroll(navbar) {
 
 }
 
-
 document.addEventListener("DOMContentLoaded", function() {
     const navbar = document.querySelector("nav");
     navbarScroll(navbar);
+});
+
+
+
+const header = document.querySelector('header');
+
+// As the user scrolls, keep the header background image in the same place
+window.addEventListener('scroll', () => {
+    header.style.backgroundPositionY = window.scrollY / 4 + 'px';
+    header.style.filter = 'blur(' + (1 - window.scrollY / 1000) + ')';
 });

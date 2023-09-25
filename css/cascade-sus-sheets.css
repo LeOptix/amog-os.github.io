@@ -13,6 +13,7 @@ haccing skill #2: view webpage's css files
 
 @media prefers-reduced-motion {
     * {
+        /*noinspection CssUnknownProperty*/
         transition: none !important;
     }
 }
