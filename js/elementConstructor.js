@@ -3,17 +3,17 @@
  */
 
 const links = [
-    { href: `./index.html`, name: `Home`, id: `home`, icon: "nf-md-home" },
-    { href: `./download.html`, name: `Download`, id: `downloads`, icon: "nf-md-download" },
-    { href: `./help.html`, name: `Help`, id: `help`, icon: "nf-md-help" },
-    { href: `./credits.html`, name: `Credits`, id: `credits`, icon: "nf-md-crowd" },
-    { href: `https://opencollective.com/amogos`, name: `Donate`, id: `donate`, icon: "nf-md-hand_heart" },
+    {href: `./index.html`, name: `Home`, id: `home`, icon: "nf-md-home"},
+    {href: `./download.html`, name: `Download`, id: `downloads`, icon: "nf-md-download"},
+    {href: `./help.html`, name: `Help`, id: `help`, icon: "nf-md-help"},
+    {href: `./credits.html`, name: `Credits`, id: `credits`, icon: "nf-md-crowd"},
+    {href: `https://opencollective.com/amogos`, name: `Donate`, id: `donate`, icon: "nf-md-hand_heart"},
 ];
 
 const socialLinks = [
-    { href: `https://discord.gg/z86muknm9y`, name: `Discord`, id: `discord`, icon: "nf-md-discord" },
-    { href: `https://github.com/amog-os/`, name: `GitHub`, id: `github`, icon: "nf-md-github" },
-    { href: `https://www.reddit.com/r/amogOS/`, name: `Reddit`, id: `reddit`, icon: "nf-md-reddit" }
+    {href: `https://discord.gg/z86muknm9y`, name: `Discord`, id: `discord`, icon: "nf-md-discord"},
+    {href: `https://github.com/amog-os/`, name: `GitHub`, id: `github`, icon: "nf-md-github"},
+    {href: `https://www.reddit.com/r/amogOS/`, name: `Reddit`, id: `reddit`, icon: "nf-md-reddit"}
 ];
 
 /**
@@ -23,21 +23,44 @@ const socialLinks = [
 function navConstructor() {
 
     const nav = document.createElement(`nav`);
+    nav.id = `navbar`;
+    nav.classList.add(`navbar`);
 
-    for (let i = 0; i < links.length; i++) {
-        const link = document.createElement(`a`);
-        link.href = links[i].href;
-        link.innerText = links[i].name;
-        link.id = links[i].id;
+    const logo = document.createElement(`a`);
+    logo.href = `./index.html`;
+    logo.classList.add(`logo`);
+    logo.innerText = `AmogOS`;
+    nav.appendChild(logo);
+
+    for (const link of links) {
+        if (link.id === `home`) continue;
+        const a = document.createElement(`a`);
+        a.href = link.href;
+        a.innerText = link.name;
+        a.id = link.id;
+        a.classList.add(`nav__link`);
 
         const icon = document.createElement(`i`);
-        icon.classList.add(`nf`);
-        icon.classList.add(links[i].icon);
-        link.prepend(icon);
+        icon.classList.add(`nf`, link.icon);
+        a.prepend(icon);
 
-        nav.appendChild(link);
+        nav.appendChild(a);
     }
 
+    const menu = document.createElement(`a`);
+    menu.id = `menu`;
+    menu.href = `javascript:void(0);`;
+    menu.onclick = () => {
+        if (nav.className === 'navbar') nav.className += ' responsive';
+        else nav.className = 'navbar';
+    };
+
+    const menuIcon = document.createElement(`i`);
+    menuIcon.classList.add(`nf`, `nf-fa-bars`);
+    menu.appendChild(menuIcon);
+
+
+    nav.append(menu);
     document.body.prepend(nav);
 
 }

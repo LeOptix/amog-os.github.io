@@ -9,6 +9,7 @@ haccing skill #2: view webpage's css files
     scroll-behavior: smooth;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 @media prefers-reduced-motion {
@@ -113,39 +114,45 @@ hr {
 nav {
 
     position: fixed;
-    top: 1em;
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
-    align-items: center;
-    justify-content: center;
-    z-index: 100;
-    background-color: var(--amog-black-transparent);
-    border-radius: 24px;
-    padding: 1em;
+    height: auto;
+    z-index: 69420;
+    padding: 4px;
+
+    background-color: var(--amog-black-transparenter);
+    backdrop-filter: blur(8px) brightness(75%) saturate(150%) contrast(75%);
+    width: 100vw;
+    transition: none;
 
     & a {
         display: flex;
-        flex-direction: row;
-        align-items: center;
+        gap: .5em;
         justify-content: center;
-        gap: 8px;
+        align-items: center;
 
-        font-size: 1.5em;
-        font-weight: 500;
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 0.5em 1em;
         text-decoration: none;
-        user-select: none;
+        overflow: hidden;
+        border-radius: 0.5em;
 
-        background: linear-gradient(to bottom right, var(--amog-blue-transparent), var(--amog-green-transparent));
-        backdrop-filter: blur(10px);
-        border-radius: 1em;
-        padding: 0.1em 1em;
-        border: solid 2px var(--amog-green-transparent);
-
-        &:hover, &:focus {
-            filter: brightness(0.75);
-            border: solid 2px var(--amog-green);
+        &:first-child {
+            background: linear-gradient(to right, var(--amog-blue-transparent), var(--amog-green-transparent));
         }
+
+        &:hover {
+            background-color: var(--amog-black-transparenter);
+        }
+    }
+
+    & #menu {
+        top: 6px;
+        right: 6px;
+        width: 36px;
+        float: right;
+        aspect-ratio: 1/1;
+        display: none;
     }
 }
 
@@ -213,7 +220,6 @@ button, .button {
         0 16px 32px var(--amog-green-transparent),
         0 32px 64px var(--amog-green-transparent);
     }
-
 }
 
 .btn-sec {
@@ -232,7 +238,6 @@ button, .button {
         0 16px 32px var(--amog-blue-transparent),
         0 32px 64px var(--amog-blue-transparent);
     }
-
 }
 
 
@@ -414,12 +419,12 @@ section {
 
 footer {
 
-    background:  linear-gradient(to bottom right, var(--amog-blue-transparent), var(--amog-green-transparent)), url("../img/airship.png");
+    background: linear-gradient(to bottom right, var(--amog-blue-transparent), var(--amog-green-transparent)), url("../img/airship.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
     border-radius: 2em;
-    padding: 2em;
+    padding: 0.5em;
     max-width: 1200px;
     width: 75%;
     margin-bottom: 2em;
@@ -446,7 +451,7 @@ footer {
         flex-direction: column;
         align-items: flex-start;
         padding: 1em;
-        border-radius: 1em;
+        border-radius: calc(2em - 0.5em);
         overflow: visible;
     }
 
@@ -489,23 +494,6 @@ footer {
 
 }
 
-@media (max-width: 1200px) {
-
-    nav {
-        border-radius: unset;
-        top: 0;
-        width: calc(100vw - 2em);
-        margin: 0 1em;
-
-        & a {
-            text-align: center;
-            flex: 1;
-            font-size: 1.2em;
-            padding: 0.1em 0.5em;
-        }
-
-    }
-}
 
 @media (max-width: 768px) {
 
@@ -520,9 +508,46 @@ footer {
     }
 
     nav {
-        padding: 0.5em;
-    }
 
+        :not(:first-child) {
+            display: none;
+        }
+
+        #menu {
+            position: fixed;
+            z-index: 100;
+            aspect-ratio: 1/1;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            float: right;
+            text-align: right;
+        }
+
+        &.responsive {
+
+            & a {
+                display: block;
+                float: none;
+                text-align: left;
+            }
+
+            & .overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                z-index: 1;
+                background-color: var(--amog-black-transparent);
+                backdrop-filter: blur(8px);
+            }
+
+        }
+    }
 
     header {
         height: 60vh;
