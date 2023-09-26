@@ -8,7 +8,7 @@ nav {
     background-color: var(--amog-black-transparenter);
     backdrop-filter: blur(8px) brightness(75%) saturate(150%) contrast(75%);
     width: 100vw;
-    transition: none;
+    transition: top 0.3s;
 
     & a {
         display: flex;

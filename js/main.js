@@ -14,7 +14,7 @@ function navbarScroll(navbar) {
     window.onscroll = function() {
         const currentScrollPos = window.pageYOffset;
         if (prevScrollPos > currentScrollPos) navbar.style.top = "0";
-        else navbar.style.top = "-69em";
+        else navbar.style.top = "-69px";
         prevScrollPos = currentScrollPos;
     }
 
