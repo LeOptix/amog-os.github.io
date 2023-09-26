@@ -22,10 +22,7 @@ haccing skill #2: view webpage's css files
     box-sizing: border-box;
 }
 
-body, html {
-    width: 100%;
-    height: 100%;
-}
+
 
 /* Misc */
 code {
