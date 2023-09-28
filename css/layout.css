@@ -163,6 +163,8 @@ footer {
     grid-area: links;
 }
 
+/*since when CSS is like this?*/
+
 .footer__link {
     width: auto;
     font-weight: 700;
