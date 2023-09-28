@@ -5,19 +5,35 @@
     gap: 1em;
 }
 
-button, .button {
+.input-row {
+    display: flex;
+    flex-direction: row;
+    gap: 0.2em;
+    align-items: center;
+
+    :first-child {
+        border-radius: 1em 0.2em 0.2em 1em;
+    }
+
+    :last-child {
+        border-radius: 0.2em 1em 1em 0.2em;
+    }
+
+    :not(:first-child):not(:last-child) {
+        border-radius: 0.2em;
+    }
+
+}
+
+input {
     padding: 0.6em 1em;
     border-radius: 1em;
     font-size: 16px;
     font-family: "Poppins", sans-serif;
     font-weight: 500;
-    cursor: pointer;
     text-align: center;
     border: 2px solid transparent;
     transition: 0.3s;
-}
-
-.btn-prim {
     background-color: var(--amog-green);
     color: #000;
 
@@ -35,7 +51,37 @@ button, .button {
     }
 }
 
-.btn-sec {
+button, .button {
+    padding: 0.6em 1em;
+    border-radius: 1em;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: 0.3s;
+}
+
+.btn-prim, .primary {
+    background-color: var(--amog-green);
+    color: #000;
+
+    &:hover, &:focus {
+        background-color: transparent;
+        border: solid 2px var(--amog-green);
+        color: var(--amog-green);
+
+        box-shadow: 0 0 0 1px var(--amog-green-transparent),
+        0 2px 4px var(--amog-green-transparent),
+        0 4px 8px var(--amog-green-transparent),
+        0 8px 16px var(--amog-green-transparent),
+        0 16px 32px var(--amog-green-transparent),
+        0 32px 64px var(--amog-green-transparent);
+    }
+}
+
+.btn-sec, .secondary {
     background-color: transparent;
     border: solid 2px var(--amog-blue);
     color: var(--amog-blue);
@@ -54,7 +100,7 @@ button, .button {
 }
 
 
-.btn-third {
+.btn-third, .third {
     background-color: transparent;
     border: solid 2px var(--amog-black-plus);
     color: #FFF;
