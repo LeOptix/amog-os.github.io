@@ -34,7 +34,7 @@ input {
     text-align: center;
     border: 2px solid transparent;
     transition: 0.3s;
-    background-color: var(--amog-green);
+    background-color: var(--amog-green-transparent);
     color: #000;
 
     &:hover, &:focus {
@@ -68,7 +68,7 @@ button, .button {
     color: #000;
 
     &:hover, &:focus {
-        background-color: transparent;
+        background-color: var(--amog-green-transparent);
         border: solid 2px var(--amog-green);
         color: var(--amog-green);
 
@@ -82,7 +82,7 @@ button, .button {
 }
 
 .btn-sec, .secondary {
-    background-color: transparent;
+    background-color: var(--amog-blue-transparent);
     border: solid 2px var(--amog-blue);
     color: var(--amog-blue);
 
@@ -101,7 +101,7 @@ button, .button {
 
 
 .btn-third, .third {
-    background-color: transparent;
+    background-color: var(--amog-black-transparent);
     border: solid 2px var(--amog-black-plus);
     color: #FFF;
 
