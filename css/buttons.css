@@ -11,6 +11,10 @@
     gap: 0.2em;
     align-items: center;
 
+    :nth-child(odd), :nth-child(even) {
+        flex: 1;
+    }
+
     :first-child {
         border-radius: 1em 0.2em 0.2em 1em;
     }
