@@ -23,10 +23,9 @@
         border-radius: 0.2em 1em 1em 0.2em;
     }
 
-    :not(:first-child):not(:last-child) {
-        border-radius: 0.2em;
+    :first-child:last-child {
+        border-radius: 1em;
     }
-
 }
 
 input {

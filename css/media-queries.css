@@ -33,6 +33,31 @@
 
     }
 
+    .input-row {
+        flex-direction: column;
+        gap: 0.1em;
+
+        :nth-child(odd), :nth-child(even) {
+            flex: 1;
+        }
+
+        :first-child {
+            border-radius: 2em 2em 0.2em 0.2em;
+        }
+
+        :last-child {
+            border-radius: 0.2em 0.2em 2em 2em;
+        }
+
+        :first-child:last-child {
+            border-radius: 1em;
+        }
+
+        :not(:first-child):not(:last-child) {
+            border-radius: 0.2em;
+        }
+    }
+
     nav {
 
         :not(:first-child) {

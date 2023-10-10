@@ -1,0 +1,56 @@
+.download-grid {
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1em;
+    padding: 1em;
+
+    width: 100%;
+    max-width: 100%;
+
+}
+
+.download {
+
+    /*
+                <div class="download alpha">
+
+                    <div class="download-header">
+                        <h4>AmogOS Toppat <span class="alpha">Alpha</span></h4>
+                        <p>Version 0.1.0</p>
+                    </div>
+
+                    <div class="download-buttons">
+                        <a href="https://mega.nz/file/tyJVWI7D#zPfPYip_zIsUnYGykBjcjIfMtxQt101tR0ta5ZtfLCc"
+                           class="button btn-prim">Download (ARM 64)</a>
+                    </div>
+
+                </div>
+     */
+
+    background-color: var(--amog-black-transparenter);
+    backdrop-filter: blur(10px) brightness(75%);
+    padding: 1em;
+    border-radius: 1em;
+    overflow: visible;
+    border: 1px solid var(--amog-green-transparent);
+
+    .download-header {
+
+        & h4 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        & p {
+            font-size: 1rem;
+            font-weight: 500;
+            margin: 0;
+        }
+
+    }
+
+
+
+}

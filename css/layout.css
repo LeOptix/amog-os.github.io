@@ -97,7 +97,7 @@ header h1 span {
 /* Footer */
 footer {
 
-    background: linear-gradient(to bottom right, var(--amog-blue-transparent), var(--amog-green-transparent)), url("../img/airship.png");
+    background: linear-gradient(to bottom right, var(--amog-blue-transparent), var(--amog-green-transparent)), url("../img/airship.webp");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;

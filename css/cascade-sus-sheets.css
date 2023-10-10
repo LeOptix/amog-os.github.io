@@ -12,6 +12,7 @@ haccing skill #2: view webpage's css files
 @import url("contributors.css"); /* Contains .coolboi, .bois */
 @import url("features.css");
 @import url("media-queries.css");
+@import url("downloads.css");
 
 /* Base styles */
 * {
