@@ -84,11 +84,11 @@ function footerConstructor() {
     const footer = createElement('footer');
 
     // noinspection HtmlUnknownTarget
-    footer.appendChild(createElement('div', ['logo'], '<img src="img/toppat-banner-light.png" alt="Logo" class="logo__image">'));
+    footer.appendChild(createElement('div', ['logo'], '<img src="img/toppat-banner-light.webp" alt="Logo" class="logo__image">'));
 
     // noinspection HtmlUnknownTarget
     const textContent = `
-        <h2>AmogOS <span id="toppat"><img src="img/toppat.png" alt="Top Hat" id="topHatImage" class="topHatImage">Toppat</span></h2>
+        <h2>AmogOS <span id="toppat"><img src="img/toppat.webp" alt="Top Hat" id="topHatImage" class="topHatImage">Toppat</span></h2>
         <p>The sus OS for sus computers is back, and <span class="sussy">even more sussy</span>.</p>
         <p><strong>© AmogOS Project</strong> All suspiciousness reserved.</p>
     `;
