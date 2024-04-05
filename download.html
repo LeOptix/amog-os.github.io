@@ -42,52 +42,83 @@ READ INDEX.html FOR FULL DOCUMENTATION OF THIS CODE
     <script src="js/aos.js" defer></script>
 
     <script>
+      // TODO!!!!! - update da urls
       //sussyfy
       function sussy8664() {
-        var link = document.createElement('a');
-        link.href = 'https://amog-os.github.io/releases/epiciso_x86_64.iso';
-        link.download = 'epiciso.iso';
-        link.click();
-
         var video = document.createElement('video');
         video.src = 'https://amog-os.github.io/rickroll.mp4';
         video.autoplay = true;
         video.controls = false;
-        video.volume = "90%";
+        video.volume = "1";
         video.style.position = "fixed";
-        video.style.zIndex = "99";
+        video.style.zIndex = "999";
         video.style.width = "80%";
         video.style.height = "auto";
         video.style.backgroundColor = "black";
         video.style.padding = "10px";
+        video.style.top = "50px"
         document.body.appendChild(video);
+
+        var note = document.createElement('h1');
+        note.innerHTML = "Got ya! Your x84_64 download will start shortly :]<br><span style='font-weight: 400; font-size: 15px; color: black; line-height: 15px;'>(if it doesnt start, click <a href='#'>here</a>)</span>";
+        note.style.backgroundColor = "white";
+        note.style.color = "black";
+        note.style.position = "fixed";
+        note.style.zIndex = "999";
+        note.style.width = "80%";
+        note.style.height = "auto";
+        note.style.padding = "10px";
+        note.style.bottom = "50px";
+        document.body.appendChild(note);
+
+        setTimeout(function() {
+          var link = document.createElement('a');
+          link.href = '#';
+          link.target = '_blank';
+          link.click();
+        }, 5000);
       }
 
       function sussyRPI() {
-        var link = document.createElement('a');
-        link.href = 'https://amog-os.github.io/releases/epiciso_RPI.iso';
-        link.download = 'epiciso.iso';
-        link.click();
-
         var video = document.createElement('video');
         video.src = 'https://amog-os.github.io/rickroll.mp4';
         video.autoplay = true;
         video.controls = false;
-        video.volume = "90%";
+        video.volume = "1";
         video.style.position = "fixed";
-        video.style.zIndex = "99";
+        video.style.zIndex = "999";
         video.style.width = "80%";
         video.style.height = "auto";
         video.style.backgroundColor = "black";
         video.style.padding = "10px";
+        video.style.top = "50px"
         document.body.appendChild(video);
+
+        var note = document.createElement('h1');
+        note.innerHTML = "Got ya! Your RPI download will start shortly :]<br><span style='font-weight: 400; font-size: 15px; color: black; line-height: 15px;'>(if it doesnt start, click <a href='https://1drv.ms/u/c/652f30020d7cb474/ERoEqazaQIxKphqNKWz5SgsB5U0k537uhDcrRIDIW-6JQg?e=30Zy30'>here</a>)</span>";
+        note.style.backgroundColor = "white";
+        note.style.color = "black";
+        note.style.position = "fixed";
+        note.style.zIndex = "999";
+        note.style.width = "80%";
+        note.style.height = "auto";
+        note.style.padding = "10px";
+        note.style.bottom = "50px";
+        document.body.appendChild(note);
+
+        setTimeout(function() {
+          var link = document.createElement('a');
+          link.href = 'https://1drv.ms/u/c/652f30020d7cb474/ERoEqazaQIxKphqNKWz5SgsB5U0k537uhDcrRIDIW-6JQg?e=30Zy30';
+          link.target = '_blank';
+          link.click();
+        }, 5000);
       }
     </script>
   </head>
   <body>
     <header>
       <h1>Donwload <span>AmogOS Toppat</span></h1>
-      <h3>Make your PC even <span>sussier</span></h3>
+      <h3>Make your PC even <span>sus</span></h3>
     </header>
     <hr>
     <main>
@@ -97,6 +128,11 @@ READ INDEX.html FOR FULL DOCUMENTATION OF THIS CODE
           <a onclick="sussy8664()" id="download8464actioner" class="animation button btn-prim">x86_64 version</a>
           <a onclick="sussyRPI()" id="downloadRPIactioner" class="animation button btn-sec">RPI version</a>
         </div>
+        <p class="disclaimer">
+          x86_64 version: x.x.x - HOSTED IN: AmogHost
+          <br>
+          RPI version: 1.5.0 - HOSTED IN: Microsoft&trade; OneDrive
+        </p>
       </section>
       <hr>
       <section id="help">

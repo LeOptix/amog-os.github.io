@@ -89,7 +89,7 @@ function footerConstructor() {
     // noinspection HtmlUnknownTarget
     const textContent = `
         <h2>AmogOS <span id="toppat"><img src="img/toppat.png" alt="Top Hat" id="topHatImage" class="topHatImage">Toppat</span></h2>
-        <p>The sus OS for sus computers is back, and <span class="sussy">even more sussy</span>.</p>
+        <p>The sus OS for sus computers is back, with more <span>sus</span> than ever before.</p>
         <p><strong>© AmogOS Project</strong> All suspiciousness reserved.</p>
     `;
     const text = createElement('div', ['footer__text', 'footer__subsection'], textContent);
